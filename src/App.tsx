@@ -5,6 +5,7 @@ import axios from 'axios'
 import List from './components/List'
 import UserItem from './components/UserItem'
 import TodoItem from './components/TodoItem'
+import Events from './components/Events'
 
 const App = () => {
 	const [users, setUsers] = useState<IUser[]>([])
@@ -33,6 +34,7 @@ const App = () => {
 
 	return (
 		<div>
+			<Events />
 			<Card
 				onClick={() => console.log('click')}
 				variant={CardVariants.primary}
