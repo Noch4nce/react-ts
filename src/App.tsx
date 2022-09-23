@@ -1,11 +1,17 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import UserPages from './components/UserPages'
 import TodosPages from './components/TodosPages'
 
 const App = () => {
 	return (
 		<BrowserRouter>
+			<div>
+				<Link style={{ marginRight: 5 }} to="/users">
+					Users
+				</Link>
+				<Link to="/todos">Todos</Link>
+			</div>
 			<Routes>
 				<Route path="/users" element={<UserPages />} />
 				<Route path="/todos" element={<TodosPages />} />
