@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import UserPages from './components/UserPages'
 import TodosPages from './components/TodosPages'
+import UserItemPage from './components/UserItemPage'
 
 const App = () => {
 	return (
@@ -15,6 +16,8 @@ const App = () => {
 			<Routes>
 				<Route path="/users" element={<UserPages />} />
 				<Route path="/todos" element={<TodosPages />} />
+
+				<Route path="/users/:id" element={<UserItemPage />} />
 			</Routes>
 		</BrowserRouter>
 
