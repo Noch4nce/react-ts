@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { IUser } from '../types/types'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 // interface UserItemPageParams {
@@ -10,6 +10,7 @@ import axios from 'axios'
 const UserItemPage = () => {
 	const [user, setUser] = useState<IUser | null>(null)
 	const { id } = useParams<{ id: string }>()
+	const navigate = useNavigate()
 
 	const fetchUser = async () => {
 		const response = await axios.get<IUser>(
@@ -25,13 +26,12 @@ const UserItemPage = () => {
 
 	return (
 		<div>
-			<button>Back</button>
+			<button onClick={() => navigate('/users')}>Back</button>
 			<h1>Page {user?.name}</h1>
+			<div>{user?.email}</div>
 			<div>
-				{user?.email}
-			</div>
-			<div>
-				{user?.address.city} {user?.address.street} {user?.address.zipcode}
+				{user?.address.city} {user?.address.street}{' '}
+				{user?.address.zipcode}
 			</div>
 		</div>
 	)
